@@ -16,14 +16,26 @@
                 </div>
         </div>
         <div class="row">
-            <button id="hit-me-baby" type="button" class="btn btn-primary">One more time</button>
+            <button id="hit-me-baby" type="button" class="btn btn-primary">One more time
+                <span id="times" class="badge badge-light"></span>
+            </button>
         </div>
     </div>
       
   <script type="text/javascript">
    function autorun()
-   {
-        document.querySelector("#hit-me-baby").addEventListener("click", function() {window.location.reload()});
+   {    
+        let qstring = window.location.search;
+        let n = 0;
+        if (qstring.length > 0) {
+            n = Number(qstring.substr(1));
+        }
+        document.querySelector("#times").innerHTML = n;
+
+        document.querySelector("#hit-me-baby").addEventListener("click", function() {
+            let url = [location.protocol, '//', location.host, location.pathname].join('');
+            window.location = url + "?" + (n + 1);
+        });
    }
    if (document.addEventListener) document.addEventListener("DOMContentLoaded", autorun, false);
    else if (document.attachEvent) document.attachEvent("onreadystatechange", autorun);
