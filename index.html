@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>How was I supposed to know?</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+        <div class="row">
+                <div class="alert-danger">
+                        Something isn't right.
+                </div>
+        </div>
+        <div class="row">
+            <button id="hit-me-baby" type="button" class="btn btn-primary">One more time</button>
+        </div>
+    </div>
+      
+  <script type="text/javascript">
+   function autorun()
+   {
+        document.querySelector("#hit-me-baby").addEventListener("click", function() {window.location.reload()});
+   }
+   if (document.addEventListener) document.addEventListener("DOMContentLoaded", autorun, false);
+   else if (document.attachEvent) document.attachEvent("onreadystatechange", autorun);
+   else window.onload = autorun;
+  </script>
+  </body>
+</html>
